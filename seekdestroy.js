@@ -1,22 +1,18 @@
-function destroyer(arr) {
-
-  var elemToDestroy = [];
-  for(var i = 1; i < arguments.length; i++){
-    elemToDestroy.push(arguments[i]);
+function destroyer(arr){
+  var remove = [];
+  for(var i=0; i<arguments.length; i++){
+    remove.push(arguments[i]);
+    console.log(remove);
   }
 
-  var survived = arguments[0].filter(function(element, index){
-    var toReturn = true;
-
-    for(var i = 0; i < elemToDestroy.length; i++){
-      if (element === elemToDestroy[i]){ 
-        toReturn = false;
-      }
+  return arr.filter(function(item){
+    if(remove.indexOf(item) >= 0){ // checks the current item is present in the remove by using indexOf(return index inside array if present)
+      return false;
     }
-    return toReturn;
-
+    else {
+      return true;
+    }
   });
-  return survived;
 }
 
 
